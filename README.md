@@ -92,13 +92,13 @@ streamlit run app.py
 
 ## Core Component Architectures
 
-### Ingestion (`ingestion.py`)
+### Ingestion (`Ingestion.py`)
 Encapsulates PDF scanning and structural file chunking. The utility avoids character-clipping artifacts by keeping interrelated contextual definitions grouped within a single window.
 
-### Retrieval & Compression (`retrieval.py`)
+### Retrieval & Compression (`Retrieval.py`)
 Maintains a singleton persistence handle over `Chroma` collections. Houses the `QueryTransformer` block and wires the `ContextReranker` to an expanded k-value to let the cross-encoder sift text context effectively.
 
-### Pipeline Orchestration (`pipeline.py`)
+### Pipeline Orchestration (`Pipeline.py`)
 Compiles the retrieval and generation phases into a clean functional execution stream. Utilizes `RunnableParallel` to parse raw user prompts and context documents simultaneously before presenting the combined payload to the final LLM synthesis layer.
 
 ---
